@@ -111,7 +111,7 @@ function card_pick(){
             cardImg8.setAttribute("src", "public/images/" + card + ".jpg");
         }
 
-        if (turnCount==8) {
+        if (turnCount==8 && lives == 1) {
             win();
             disablePlay();
             document.getElementById("start").disabled = false;
