@@ -61,30 +61,24 @@ function card_pick(){
 
     //checks to see if the card has been drawn before, if so it re draws a card.
     if (drawnCards.includes(card)){
-        console.log("duplicate");
         card_pick();
     }
     else{
-    console.log("previous card ", oldCard);
     newCard = cards[card];
-    console.log("New card ", newCard);
 
     if(newCard > oldCard){
-        console.log("new card higher than old card");
         if(higherP == false){
             cardOutput.innerText = "you picked lower, new card higher than old card you lose";
             lives = 0;
         }
     }
         else if(newCard < oldCard){
-            console.log("new card Lower than old card")
             if(lowerP == false){
                 cardOutput.innerText = "you picked higher, new card lower than old card you lose";
                 lives = 0;
             }
         }
         else if(newCard == oldCard){
-            console.log("new card same value as old card")
             cardOutput.innerText = "new card is the same value as the old card, you lose";
             lives = 0;
         }
@@ -118,8 +112,7 @@ function card_pick(){
         }
 
         if (turnCount==8) {
-            cardOutput.innerText = "you win";
-            console.log("you win!");
+            win();
             disablePlay();
             document.getElementById("start").disabled = false;
         }
@@ -146,7 +139,7 @@ function enablePlay(){
 }
 
 function win(){
-    console.log("you win!");
+    cardOutput.innerText = "You Win!";
 }
 
 function start(){
@@ -186,6 +179,5 @@ function newGame(){
 }
 
 function endGame(){
-    console.log("you lose")
     disablePlay();
 }
